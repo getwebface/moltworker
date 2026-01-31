@@ -225,17 +225,19 @@ if (isOpenAI) {
         baseUrl: baseUrl,
         api: 'openai-responses',
         models: [
-            { id: 'gpt-5.2', name: 'GPT-5.2', contextWindow: 200000 },
-            { id: 'gpt-5', name: 'GPT-5', contextWindow: 200000 },
-            { id: 'gpt-4.5-preview', name: 'GPT-4.5 Preview', contextWindow: 128000 },
+            { id: 'gpt-5-mini', name: 'GPT-5 Mini', contextWindow: 128000 },
+            { id: 'gpt-5-nano', name: 'GPT-5 Nano', contextWindow: 64000 },
+            { id: 'gpt-4o-mini', name: 'GPT-4o Mini', contextWindow: 128000 },
         ]
     };
     // Add models to the allowlist so they appear in /models
     config.agents.defaults.models = config.agents.defaults.models || {};
-    config.agents.defaults.models['openai/gpt-5.2'] = { alias: 'GPT-5.2' };
-    config.agents.defaults.models['openai/gpt-5'] = { alias: 'GPT-5' };
-    config.agents.defaults.models['openai/gpt-4.5-preview'] = { alias: 'GPT-4.5' };
-    config.agents.defaults.model.primary = 'openai/gpt-5.2';
+    config.agents.defaults.models['openai/gpt-5-mini'] = { alias: 'GPT-5 Mini' };
+    config.agents.defaults.models['openai/gpt-5-nano'] = { alias: 'GPT-5 Nano' };
+    config.agents.defaults.models['openai/gpt-4o-mini'] = { alias: 'GPT-4o Mini' };
+    
+    // Set the primary model to the most capable "cheap" option
+    config.agents.defaults.model.primary = 'openai/gpt-5-mini';
 } else if (baseUrl) {
     console.log('Configuring Anthropic provider with base URL:', baseUrl);
     config.models = config.models || {};
