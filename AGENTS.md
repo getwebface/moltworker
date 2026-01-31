@@ -10,7 +10,7 @@ This is a Cloudflare Worker that runs [Moltbot](https://molt.bot/) in a Cloudfla
 - API endpoints at `/api/*` for device pairing
 - Debug endpoints at `/debug/*` for troubleshooting
 
-**Note:** The CLI tool is still named `clawdbot` (upstream hasn't renamed yet), so CLI commands and internal config paths still use that name.
+**Note:** The CLI tool is still named `clawdbot`, so CLI commands and internal config paths still use that name.
 
 ## Project Structure
 
